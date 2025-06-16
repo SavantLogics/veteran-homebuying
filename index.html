@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Veteran's Home Buying Journey: An Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F9FC;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-step {
+            position: relative;
+            padding-bottom: 3rem;
+        }
+        .flowchart-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 3rem;
+            background-color: #4198D7;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#004AAD] mb-2">The Veteran's Home Buying Journey</h1>
+            <p class="text-lg text-gray-600">An Interactive Guide to Using Your VA Loan Benefit</p>
+        </header>
+
+        <section id="va-advantage" class="mb-16">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">The VA Home Loan Advantage</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">The VA loan is a powerful benefit for service members, veterans, and eligible surviving spouses. It's designed to make homeownership more accessible and affordable by removing many of the financial hurdles associated with conventional loans. Here are the core advantages that set it apart.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                        <div class="text-5xl mb-2">💰</div>
+                        <h3 class="text-2xl font-bold text-[#004AAD]">\$0 Down Payment</h3>
+                        <p class="text-gray-600">For most eligible veterans, no down payment is required, making it possible to buy a home without years of saving.</p>
+                    </div>
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                        <div class="text-5xl mb-2">🛡️</div>
+                        <h3 class="text-2xl font-bold text-[#004AAD]">No Private Mortgage Insurance (PMI)</h3>
+                        <p class="text-gray-600">Conventional loans often require PMI for down payments under 20%. VA loans have no PMI, saving you hundreds monthly.</p>
+                    </div>
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                        <div class="text-5xl mb-2">📉</div>
+                        <h3 class="text-2xl font-bold text-[#004AAD]">Competitive Interest Rates</h3>
+                        <p class="text-gray-600">The government's guarantee often results in lenders offering more favorable interest rates than other loan types.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey-flowchart" class="mb-16">
+            <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Your Path to Homeownership</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">Buying a home is a journey with several key phases. This overview shows the path from initial thoughts to getting the keys to your new home. Each step is a critical milestone on your way to a successful purchase.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 text-center">
+                <div class="flowchart-step">
+                    <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 1: Preparation</h3>
+                    <p class="text-gray-600">Get your finances in order, secure a Certificate of Eligibility (COE), and get pre-approved for a loan.</p>
+                </div>
+                <div class="flowchart-step">
+                    <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 2: The Hunt</h3>
+                    <p class="text-gray-600">Work with a realtor to find the right home, make a competitive offer, and negotiate a purchase contract.</p>
+                </div>
+                <div class="flowchart-step">
+                    <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 3: Closing</h3>
+                    <p class="text-gray-600">The final phase involves the appraisal, inspection, underwriting, final walk-through, and signing the final documents.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="preapproval" class="mb-16">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Pre-Approval is Your Golden Ticket</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Before you start looking at homes, understanding the difference between pre-qualification and pre-approval is crucial. A pre-approval gives you a significant advantage by showing sellers you are a serious, financially-vetted buyer.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="border-2 border-red-300 border-dashed rounded-lg p-6">
+                        <h3 class="text-2xl font-semibold text-red-600 mb-4">Pre-Qualification</h3>
+                        <p class="text-gray-600 mb-4">A quick, informal estimate of what you might be able to borrow based on self-reported information. It's a starting point, but carries little weight.</p>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> No credit check required</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> No financial verification</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> Provides only a rough estimate</li>
+                            <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> Not a commitment to lend</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-green-400 rounded-lg p-6 bg-green-50">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-4">Pre-Approval</h3>
+                        <p class="text-gray-600 mb-4">A formal, conditional commitment from a lender for a specific loan amount. This is what you need to make a strong offer.</p>
+                         <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Requires full mortgage application</li>
+                            <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Requires credit history check</li>
+                            <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Verifies income and assets</li>
+                            <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Gives you a specific loan amount</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="costs" class="mb-16">
+            <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Understanding the Costs</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">While the VA loan helps you avoid a down payment, there are still costs involved in buying a home. Being prepared for these out-of-pocket expenses is essential for a smooth closing process.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 order-2 md:order-1">
+                    <h3 class="text-2xl font-bold text-[#004AAD] text-center mb-4">Typical Closing Cost Composition</h3>
+                    <p class="text-center text-gray-600 mb-6">Your closing costs are made up of various fees. While the seller can contribute, it's wise to budget for 2-5% of the purchase price. This chart shows a typical breakdown of where that money goes.</p>
+                    <div class="chart-container">
+                        <canvas id="costsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="order-1 md:order-2 space-y-4">
+                     <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">Home Inspection: ~\$350 - \$600+</h4>
+                        <p class="text-gray-600">Paid directly to an inspector to assess the home's condition. This is crucial for identifying potential issues before you buy.</p>
+                    </div>
+                     <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">VA Appraisal: ~\$500 - \$900+</h4>
+                        <p class="text-gray-600">An upfront fee for a VA-certified appraiser to determine the home's value and ensure it meets VA safety standards.</p>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">Earnest Money Deposit: ~1-2%</h4>
+                        <p class="text-gray-600">A "good faith" deposit made with your offer. It's credited back to you at closing, often covering other costs.</p>
+                    </div>
+                     <div class="bg-white rounded-xl shadow-md p-6 bg-[#F5A623]/10">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">VA Funding Fee: ~2.3% - 3.6%</h4>
+                        <p class="text-gray-600">A one-time fee paid to the VA (can be financed). Exempt for veterans receiving VA disability compensation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reuse" class="mb-16">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Reusing Your VA Loan Benefit</h2>
+                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Your VA loan benefit isn't a one-time use. You can use it multiple times throughout your life, provided you meet certain conditions. You can even own more than one property with a VA loan simultaneously if you have remaining entitlement.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                        <h3 class="font-bold text-[#004AAD] mb-2">1. Sell & Restore</h3>
+                        <p class="text-gray-600">If you sell the home and pay off the loan in full, your entitlement is fully restored to be used again.</p>
+                    </div>
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                        <h3 class="font-bold text-[#004AAD] mb-2">2. One-Time Restoration</h3>
+                        <p class="text-gray-600">You may be able to restore your entitlement one time if you've paid off the loan but still own the property.</p>
+                    </div>
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                        <h3 class="font-bold text-[#004AAD] mb-2">3. Purchase a New Home</h3>
+                        <p class="text-gray-600">You can use your remaining entitlement to buy another home, even while still owning the first, if you have sufficient income and credit.</p>
+                    </div>
+                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                        <h3 class="font-bold text-[#004AAD] mb-2">4. Refinance</h3>
+                        <p class="text-gray-600">Use the Interest Rate Reduction Refinance Loan (IRRRL) to lower your rate or refinance a non-VA loan into a VA loan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="lenders" class="mb-16">
+            <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Choosing Your Financial Partners</h2>
+            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">The lender you choose is a critical partner in your home-buying journey. It's vital to ask the right questions to ensure they are a good fit for your needs. The source material for this infographic also noted several lenders that veterans reported issues with during the pandemic forbearance period.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-6">Questions to Ask Potential Lenders</h3>
+                    <div id="accordion-container" class="space-y-2">
+                        <!-- Accordion items will be injected by JS -->
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border-l-4 border-[#F5A623]">
+                    <h3 class="text-2xl font-bold text-[#004AAD] mb-6">Lenders to Research Carefully</h3>
+                     <div class="flex items-start">
+                        <span class="text-2xl mr-3 mt-1">⚠️</span>
+                        <div>
+                           <p class="text-gray-600 mb-4">Based on the provided research, veterans reported negative experiences with the following companies regarding forbearance plans. It is recommended to perform extra due diligence and check recent reviews before committing.</p>
+                           <ul class="list-disc list-inside text-gray-700 space-y-2">
+                               <li>Mr. Cooper Mortgage</li>
+                               <li>Donvenmuehle Mortgage</li>
+                               <li>Freedom Mortgage</li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>This infographic is for informational purposes only and is based on the "buying_a_home.pdf" document. All financial decisions should be made in consultation with qualified real estate and financial professionals.</p>
+            <p>Created on June 15, 2025.</p>
+        </footer>
+
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 <= maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const costData = {
+            labels: ['Lender & Origination Fees', 'Title & Escrow Fees', 'Taxes & Government Fees', 'Prepaid Insurance & Taxes'],
+            datasets: [{
+                label: 'Closing Cost Breakdown',
+                data: [40, 30, 15, 15],
+                backgroundColor: [
+                    '#004AAD',
+                    '#4198D7',
+                    '#F5A623',
+                    '#F8E71C'
+                ],
+                borderColor: '#FFFFFF',
+                borderWidth: 2,
+                hoverOffset: 4
+            }]
+        };
+
+        const costsChartCtx = document.getElementById('costsChart').getContext('2d');
+        new Chart(costsChartCtx, {
+            type: 'doughnut',
+            data: costData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                size: 12,
+                                family: 'Inter'
+                            },
+                             boxWidth: 15,
+                             padding: 20
+                        }
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const accordionData = [
+            {
+                question: "What specific VA loan programs do you offer?",
+                answer: "Ensure they offer the full range of VA products, like IRRRLs for future refinancing, not just purchase loans."
+            },
+            {
+                question: "Can you provide a detailed estimate of closing costs?",
+                answer: "A transparent lender should provide a Loan Estimate quickly. Compare these between lenders to avoid surprises."
+            },
+            {
+                question: "Can I lock in the interest rate, and is there a fee?",
+                answer: "Rates fluctuate daily. Understanding a lender's rate lock policy is key to protecting your purchasing power."
+            },
+            {
+                question: "Who will service my loan after closing?",
+                answer: "Some lenders sell your loan immediately. Knowing who you'll be making payments to can be important for customer service."
+            },
+             {
+                question: "What is your average time to close a VA loan?",
+                answer: "An experienced VA lender should have an efficient process. A long closing time can put your purchase contract at risk."
+            }
+        ];
+
+        const accordionContainer = document.getElementById('accordion-container');
+        accordionData.forEach((item, index) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'border border-gray-200 rounded-lg';
+            
+            const button = document.createElement('button');
+            button.className = 'w-full flex justify-between items-center p-4 text-left font-semibold text-[#004AAD] bg-gray-50 hover:bg-gray-100';
+            button.setAttribute('aria-expanded', 'false');
+            button.setAttribute('aria-controls', `accordion-content-${index}`);
+            
+            const questionSpan = document.createElement('span');
+            questionSpan.textContent = item.question;
+            
+            const icon = document.createElement('span');
+            icon.className = 'transform transition-transform duration-300';
+            icon.textContent = '▼';
+            
+            button.appendChild(questionSpan);
+            button.appendChild(icon);
+
+            const content = document.createElement('div');
+            content.id = `accordion-content-${index}`;
+            content.className = 'accordion-content';
+            content.innerHTML = `<p class="p-4 text-gray-600">${item.answer}</p>`;
+
+            wrapper.appendChild(button);
+            wrapper.appendChild(content);
+            accordionContainer.appendChild(wrapper);
+
+            button.addEventListener('click', () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isExpanded);
+                icon.classList.toggle('rotate-180', !isExpanded);
+                content.style.maxHeight = isExpanded ? '0' : content.scrollHeight + 'px';
+            });
+        });
+    });
+</script>
+</body>
+</html>
