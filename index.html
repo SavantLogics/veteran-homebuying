@@ -13,7 +13,14 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #F7F9FC;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+        
+        .dark body {
+            background-color: #0F172A;
+            color: #E2E8F0;
+        }
+        
         .chart-container {
             position: relative;
             width: 100%;
@@ -23,15 +30,18 @@
             height: 300px;
             max-height: 400px;
         }
+        
         @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
             }
         }
+        
         .flowchart-step {
             position: relative;
             padding-bottom: 3rem;
         }
+        
         .flowchart-step:not(:last-child)::after {
             content: '';
             position: absolute;
@@ -42,41 +52,140 @@
             height: 3rem;
             background-color: #4198D7;
         }
+        
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
+        
+        /* Dark mode toggle switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #4198D7;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* Dark mode styles */
+        .dark-mode-card {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .dark .dark-mode-card {
+            background-color: #1E293B;
+            border-color: #334155;
+        }
+        
+        .dark-mode-text {
+            transition: color 0.3s ease;
+        }
+        
+        .dark .dark-mode-text {
+            color: #E2E8F0;
+        }
+        
+        .dark-mode-text-muted {
+            transition: color 0.3s ease;
+        }
+        
+        .dark .dark-mode-text-muted {
+            color: #94A3B8;
+        }
+        
+        .dark-mode-bg {
+            transition: background-color 0.3s ease;
+        }
+        
+        .dark .dark-mode-bg {
+            background-color: #334155;
+        }
+        
+        .dark-mode-border {
+            transition: border-color 0.3s ease;
+        }
+        
+        .dark .dark-mode-border {
+            border-color: #475569;
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 dark-mode-text">
+
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50 flex items-center space-x-3 bg-white dark-mode-card shadow-lg rounded-full px-4 py-2">
+        <span class="text-sm font-medium dark-mode-text">🌞</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="text-sm font-medium dark-mode-text">🌙</span>
+    </div>
 
     <div class="container mx-auto p-4 md:p-8">
 
         <header class="text-center mb-12">
             <h1 class="text-4xl md:text-5xl font-extrabold text-[#004AAD] mb-2">The Veteran's Home Buying Journey</h1>
-            <p class="text-lg text-gray-600">An Interactive Guide to Using Your VA Loan Benefit</p>
+            <p class="text-lg text-gray-600 dark-mode-text-muted">An Interactive Guide to Using Your VA Loan Benefit</p>
         </header>
 
         <section id="va-advantage" class="mb-16">
-            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">The VA Home Loan Advantage</h2>
-                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">The VA loan is a powerful benefit for service members, veterans, and eligible surviving spouses. It's designed to make homeownership more accessible and affordable by removing many of the financial hurdles associated with conventional loans. Here are the core advantages that set it apart.</p>
+                <p class="text-center text-gray-600 dark-mode-text-muted mb-8 max-w-3xl mx-auto">The VA loan is a powerful benefit for service members, veterans, and eligible surviving spouses. It's designed to make homeownership more accessible and affordable by removing many of the financial hurdles associated with conventional loans. Here are the core advantages that set it apart.</p>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl">
                         <div class="text-5xl mb-2">💰</div>
-                        <h3 class="text-2xl font-bold text-[#004AAD]">\$0 Down Payment</h3>
-                        <p class="text-gray-600">For most eligible veterans, no down payment is required, making it possible to buy a home without years of saving.</p>
+                        <h3 class="text-2xl font-bold text-[#004AAD]">$0 Down Payment</h3>
+                        <p class="text-gray-600 dark-mode-text-muted">For most eligible veterans, no down payment is required, making it possible to buy a home without years of saving.</p>
                     </div>
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl">
                         <div class="text-5xl mb-2">🛡️</div>
                         <h3 class="text-2xl font-bold text-[#004AAD]">No Private Mortgage Insurance (PMI)</h3>
-                        <p class="text-gray-600">Conventional loans often require PMI for down payments under 20%. VA loans have no PMI, saving you hundreds monthly.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">Conventional loans often require PMI for down payments under 20%. VA loans have no PMI, saving you hundreds monthly.</p>
                     </div>
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl">
                         <div class="text-5xl mb-2">📉</div>
                         <h3 class="text-2xl font-bold text-[#004AAD]">Competitive Interest Rates</h3>
-                        <p class="text-gray-600">The government's guarantee often results in lenders offering more favorable interest rates than other loan types.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">The government's guarantee often results in lenders offering more favorable interest rates than other loan types.</p>
                     </div>
                 </div>
             </div>
@@ -84,45 +193,45 @@
 
         <section id="journey-flowchart" class="mb-16">
             <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Your Path to Homeownership</h2>
-            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">Buying a home is a journey with several key phases. This overview shows the path from initial thoughts to getting the keys to your new home. Each step is a critical milestone on your way to a successful purchase.</p>
+            <p class="text-center text-gray-600 dark-mode-text-muted mb-10 max-w-3xl mx-auto">Buying a home is a journey with several key phases. This overview shows the path from initial thoughts to getting the keys to your new home. Each step is a critical milestone on your way to a successful purchase.</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 text-center">
                 <div class="flowchart-step">
                     <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">1</div>
                     <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 1: Preparation</h3>
-                    <p class="text-gray-600">Get your finances in order, secure a Certificate of Eligibility (COE), and get pre-approved for a loan.</p>
+                    <p class="text-gray-600 dark-mode-text-muted">Get your finances in order, secure a Certificate of Eligibility (COE), and get pre-approved for a loan.</p>
                 </div>
                 <div class="flowchart-step">
                     <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">2</div>
                     <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 2: The Hunt</h3>
-                    <p class="text-gray-600">Work with a realtor to find the right home, make a competitive offer, and negotiate a purchase contract.</p>
+                    <p class="text-gray-600 dark-mode-text-muted">Work with a realtor to find the right home, make a competitive offer, and negotiate a purchase contract.</p>
                 </div>
                 <div class="flowchart-step">
                     <div class="bg-[#4198D7] text-white rounded-full w-16 h-16 flex items-center justify-center text-3xl font-bold mx-auto mb-4">3</div>
                     <h3 class="text-2xl font-bold text-[#004AAD] mb-2">Phase 3: Closing</h3>
-                    <p class="text-gray-600">The final phase involves the appraisal, inspection, underwriting, final walk-through, and signing the final documents.</p>
+                    <p class="text-gray-600 dark-mode-text-muted">The final phase involves the appraisal, inspection, underwriting, final walk-through, and signing the final documents.</p>
                 </div>
             </div>
         </section>
 
         <section id="preapproval" class="mb-16">
-            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Pre-Approval is Your Golden Ticket</h2>
-                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Before you start looking at homes, understanding the difference between pre-qualification and pre-approval is crucial. A pre-approval gives you a significant advantage by showing sellers you are a serious, financially-vetted buyer.</p>
+                <p class="text-center text-gray-600 dark-mode-text-muted mb-8 max-w-3xl mx-auto">Before you start looking at homes, understanding the difference between pre-qualification and pre-approval is crucial. A pre-approval gives you a significant advantage by showing sellers you are a serious, financially-vetted buyer.</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="border-2 border-red-300 border-dashed rounded-lg p-6">
+                    <div class="border-2 border-red-300 border-dashed rounded-lg p-6 dark-mode-border">
                         <h3 class="text-2xl font-semibold text-red-600 mb-4">Pre-Qualification</h3>
-                        <p class="text-gray-600 mb-4">A quick, informal estimate of what you might be able to borrow based on self-reported information. It's a starting point, but carries little weight.</p>
-                        <ul class="space-y-2 text-gray-700">
+                        <p class="text-gray-600 dark-mode-text-muted mb-4">A quick, informal estimate of what you might be able to borrow based on self-reported information. It's a starting point, but carries little weight.</p>
+                        <ul class="space-y-2 text-gray-700 dark-mode-text">
                             <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> No credit check required</li>
                             <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> No financial verification</li>
                             <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> Provides only a rough estimate</li>
                             <li class="flex items-center"><span class="text-red-500 mr-2">✖</span> Not a commitment to lend</li>
                         </ul>
                     </div>
-                    <div class="border-2 border-green-400 rounded-lg p-6 bg-green-50">
+                    <div class="border-2 border-green-400 rounded-lg p-6 bg-green-50 dark-mode-bg dark-mode-border">
                         <h3 class="text-2xl font-semibold text-green-700 mb-4">Pre-Approval</h3>
-                        <p class="text-gray-600 mb-4">A formal, conditional commitment from a lender for a specific loan amount. This is what you need to make a strong offer.</p>
-                         <ul class="space-y-2 text-gray-700">
+                        <p class="text-gray-600 dark-mode-text-muted mb-4">A formal, conditional commitment from a lender for a specific loan amount. This is what you need to make a strong offer.</p>
+                         <ul class="space-y-2 text-gray-700 dark-mode-text">
                             <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Requires full mortgage application</li>
                             <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Requires credit history check</li>
                             <li class="flex items-center"><span class="text-green-600 mr-2 font-bold">✔</span> Verifies income and assets</li>
@@ -136,57 +245,57 @@
 
         <section id="costs" class="mb-16">
             <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Understanding the Costs</h2>
-            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">While the VA loan helps you avoid a down payment, there are still costs involved in buying a home. Being prepared for these out-of-pocket expenses is essential for a smooth closing process.</p>
+            <p class="text-center text-gray-600 dark-mode-text-muted mb-10 max-w-3xl mx-auto">While the VA loan helps you avoid a down payment, there are still costs involved in buying a home. Being prepared for these out-of-pocket expenses is essential for a smooth closing process.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 order-2 md:order-1">
+                <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8 order-2 md:order-1">
                     <h3 class="text-2xl font-bold text-[#004AAD] text-center mb-4">Typical Closing Cost Composition</h3>
-                    <p class="text-center text-gray-600 mb-6">Your closing costs are made up of various fees. While the seller can contribute, it's wise to budget for 2-5% of the purchase price. This chart shows a typical breakdown of where that money goes.</p>
+                    <p class="text-center text-gray-600 dark-mode-text-muted mb-6">Your closing costs are made up of various fees. While the seller can contribute, it's wise to budget for 2-5% of the purchase price. This chart shows a typical breakdown of where that money goes.</p>
                     <div class="chart-container">
                         <canvas id="costsChart"></canvas>
                     </div>
                 </div>
 
                 <div class="order-1 md:order-2 space-y-4">
-                     <div class="bg-white rounded-xl shadow-md p-6">
-                        <h4 class="text-xl font-semibold text-[#004AAD]">Home Inspection: ~\$350 - \$600+</h4>
-                        <p class="text-gray-600">Paid directly to an inspector to assess the home's condition. This is crucial for identifying potential issues before you buy.</p>
+                     <div class="bg-white dark-mode-card rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">Home Inspection: ~$350 - $600+</h4>
+                        <p class="text-gray-600 dark-mode-text-muted">Paid directly to an inspector to assess the home's condition. This is crucial for identifying potential issues before you buy.</p>
                     </div>
-                     <div class="bg-white rounded-xl shadow-md p-6">
-                        <h4 class="text-xl font-semibold text-[#004AAD]">VA Appraisal: ~\$500 - \$900+</h4>
-                        <p class="text-gray-600">An upfront fee for a VA-certified appraiser to determine the home's value and ensure it meets VA safety standards.</p>
+                     <div class="bg-white dark-mode-card rounded-xl shadow-md p-6">
+                        <h4 class="text-xl font-semibold text-[#004AAD]">VA Appraisal: ~$500 - $900+</h4>
+                        <p class="text-gray-600 dark-mode-text-muted">An upfront fee for a VA-certified appraiser to determine the home's value and ensure it meets VA safety standards.</p>
                     </div>
-                    <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="bg-white dark-mode-card rounded-xl shadow-md p-6">
                         <h4 class="text-xl font-semibold text-[#004AAD]">Earnest Money Deposit: ~1-2%</h4>
-                        <p class="text-gray-600">A "good faith" deposit made with your offer. It's credited back to you at closing, often covering other costs.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">A "good faith" deposit made with your offer. It's credited back to you at closing, often covering other costs.</p>
                     </div>
-                     <div class="bg-white rounded-xl shadow-md p-6 bg-[#F5A623]/10">
+                     <div class="bg-white dark-mode-card rounded-xl shadow-md p-6 bg-[#F5A623]/10 dark-mode-bg">
                         <h4 class="text-xl font-semibold text-[#004AAD]">VA Funding Fee: ~2.3% - 3.6%</h4>
-                        <p class="text-gray-600">A one-time fee paid to the VA (can be financed). Exempt for veterans receiving VA disability compensation.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">A one-time fee paid to the VA (can be financed). Exempt for veterans receiving VA disability compensation.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="reuse" class="mb-16">
-            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+            <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Reusing Your VA Loan Benefit</h2>
-                <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Your VA loan benefit isn't a one-time use. You can use it multiple times throughout your life, provided you meet certain conditions. You can even own more than one property with a VA loan simultaneously if you have remaining entitlement.</p>
+                <p class="text-center text-gray-600 dark-mode-text-muted mb-8 max-w-3xl mx-auto">Your VA loan benefit isn't a one-time use. You can use it multiple times throughout your life, provided you meet certain conditions. You can even own more than one property with a VA loan simultaneously if you have remaining entitlement.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl border border-[#4198D7] dark-mode-border">
                         <h3 class="font-bold text-[#004AAD] mb-2">1. Sell & Restore</h3>
-                        <p class="text-gray-600">If you sell the home and pay off the loan in full, your entitlement is fully restored to be used again.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">If you sell the home and pay off the loan in full, your entitlement is fully restored to be used again.</p>
                     </div>
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl border border-[#4198D7] dark-mode-border">
                         <h3 class="font-bold text-[#004AAD] mb-2">2. One-Time Restoration</h3>
-                        <p class="text-gray-600">You may be able to restore your entitlement one time if you've paid off the loan but still own the property.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">You may be able to restore your entitlement one time if you've paid off the loan but still own the property.</p>
                     </div>
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl border border-[#4198D7] dark-mode-border">
                         <h3 class="font-bold text-[#004AAD] mb-2">3. Purchase a New Home</h3>
-                        <p class="text-gray-600">You can use your remaining entitlement to buy another home, even while still owning the first, if you have sufficient income and credit.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">You can use your remaining entitlement to buy another home, even while still owning the first, if you have sufficient income and credit.</p>
                     </div>
-                    <div class="bg-[#F7F9FC] p-6 rounded-xl border border-[#4198D7]">
+                    <div class="bg-[#F7F9FC] dark-mode-bg p-6 rounded-xl border border-[#4198D7] dark-mode-border">
                         <h3 class="font-bold text-[#004AAD] mb-2">4. Refinance</h3>
-                        <p class="text-gray-600">Use the Interest Rate Reduction Refinance Loan (IRRRL) to lower your rate or refinance a non-VA loan into a VA loan.</p>
+                        <p class="text-gray-600 dark-mode-text-muted">Use the Interest Rate Reduction Refinance Loan (IRRRL) to lower your rate or refinance a non-VA loan into a VA loan.</p>
                     </div>
                 </div>
             </div>
@@ -194,21 +303,21 @@
 
          <section id="lenders" class="mb-16">
             <h2 class="text-3xl font-bold text-[#004AAD] text-center mb-6">Choosing Your Financial Partners</h2>
-            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">The lender you choose is a critical partner in your home-buying journey. It's vital to ask the right questions to ensure they are a good fit for your needs. The source material for this infographic also noted several lenders that veterans reported issues with during the pandemic forbearance period.</p>
+            <p class="text-center text-gray-600 dark-mode-text-muted mb-10 max-w-3xl mx-auto">The lender you choose is a critical partner in your home-buying journey. It's vital to ask the right questions to ensure they are a good fit for your needs. The source material for this infographic also noted several lenders that veterans reported issues with during the pandemic forbearance period.</p>
              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8">
                     <h3 class="text-2xl font-bold text-[#004AAD] mb-6">Questions to Ask Potential Lenders</h3>
                     <div id="accordion-container" class="space-y-2">
                         <!-- Accordion items will be injected by JS -->
                     </div>
                 </div>
-                <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border-l-4 border-[#F5A623]">
+                <div class="bg-white dark-mode-card rounded-2xl shadow-lg p-6 md:p-8 border-l-4 border-[#F5A623]">
                     <h3 class="text-2xl font-bold text-[#004AAD] mb-6">Lenders to Research Carefully</h3>
                      <div class="flex items-start">
                         <span class="text-2xl mr-3 mt-1">⚠️</span>
                         <div>
-                           <p class="text-gray-600 mb-4">Based on the provided research, veterans reported negative experiences with the following companies regarding forbearance plans. It is recommended to perform extra due diligence and check recent reviews before committing.</p>
-                           <ul class="list-disc list-inside text-gray-700 space-y-2">
+                           <p class="text-gray-600 dark-mode-text-muted mb-4">Based on the provided research, veterans reported negative experiences with the following companies regarding forbearance plans. It is recommended to perform extra due diligence and check recent reviews before committing.</p>
+                           <ul class="list-disc list-inside text-gray-700 dark-mode-text space-y-2">
                                <li>Mr. Cooper Mortgage</li>
                                <li>Donvenmuehle Mortgage</li>
                                <li>Freedom Mortgage</li>
@@ -220,7 +329,7 @@
         </section>
 
 
-        <footer class="text-center mt-12 text-gray-500 text-sm">
+        <footer class="text-center mt-12 text-gray-500 dark-mode-text-muted text-sm">
             <p>This infographic is for informational purposes only and is based on the "buying_a_home.pdf" document. All financial decisions should be made in consultation with qualified real estate and financial professionals.</p>
             <p>Created on June 15, 2025.</p>
         </footer>
@@ -229,6 +338,28 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved dark mode preference or default to light mode
+        const savedTheme = localStorage.getItem('darkMode');
+        if (savedTheme === 'true') {
+            html.classList.add('dark');
+            darkModeToggle.checked = true;
+        }
+        
+        // Toggle dark mode
+        darkModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
         
         function wrapLabel(str, maxWidth) {
             if (str.length <= maxWidth) {
@@ -331,10 +462,10 @@
         const accordionContainer = document.getElementById('accordion-container');
         accordionData.forEach((item, index) => {
             const wrapper = document.createElement('div');
-            wrapper.className = 'border border-gray-200 rounded-lg';
+            wrapper.className = 'border border-gray-200 dark-mode-border rounded-lg';
             
             const button = document.createElement('button');
-            button.className = 'w-full flex justify-between items-center p-4 text-left font-semibold text-[#004AAD] bg-gray-50 hover:bg-gray-100';
+            button.className = 'w-full flex justify-between items-center p-4 text-left font-semibold text-[#004AAD] bg-gray-50 dark-mode-bg hover:bg-gray-100 transition-colors duration-300';
             button.setAttribute('aria-expanded', 'false');
             button.setAttribute('aria-controls', `accordion-content-${index}`);
             
@@ -351,7 +482,7 @@
             const content = document.createElement('div');
             content.id = `accordion-content-${index}`;
             content.className = 'accordion-content';
-            content.innerHTML = `<p class="p-4 text-gray-600">${item.answer}</p>`;
+            content.innerHTML = `<p class="p-4 text-gray-600 dark-mode-text-muted">${item.answer}</p>`;
 
             wrapper.appendChild(button);
             wrapper.appendChild(content);
